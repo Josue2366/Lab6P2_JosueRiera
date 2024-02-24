@@ -702,7 +702,8 @@ public class Transferencia extends javax.swing.JFrame {
                      team.add(posicion);
                      
                  }
-                 mod.reload(team);
+                 jTree1.removeAll();
+                 jTree1.setModel(mod);
              }
             }else{
                 JOptionPane.showMessageDialog(jD_Transferencia, "Equipo no seleccionado");
