@@ -49,10 +49,10 @@ public class Transferencia extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jt_nom = new javax.swing.JTextField();
         jS_Edad = new javax.swing.JSpinner();
         jc_posicion = new javax.swing.JComboBox<>();
         Jb_jugador = new javax.swing.JButton();
+        jf_nom = new javax.swing.JFormattedTextField();
         jD_Transferencia = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -60,10 +60,15 @@ public class Transferencia extends javax.swing.JFrame {
         jTree1 = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         jL_Jugadores = new javax.swing.JList<>();
-        jButton6 = new javax.swing.JButton();
+        Transferencia = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jMenuItem4 = new javax.swing.JMenuItem();
+        menu_jl = new javax.swing.JPopupMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        menu_equipo = new javax.swing.JPopupMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jP_principal = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
@@ -216,6 +221,12 @@ public class Transferencia extends javax.swing.JFrame {
             }
         });
 
+        jf_nom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jf_nomActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -231,16 +242,16 @@ public class Transferencia extends javax.swing.JFrame {
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addComponent(jS_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jc_posicion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jc_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jf_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(309, 309, 309)
                         .addComponent(Jb_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -254,8 +265,8 @@ public class Transferencia extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jt_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                    .addComponent(jf_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jS_Edad, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -263,7 +274,7 @@ public class Transferencia extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jc_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(Jb_jugador, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
@@ -288,13 +299,28 @@ public class Transferencia extends javax.swing.JFrame {
         jTree1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Equipos");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTree1);
 
         jL_Jugadores.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jL_Jugadores.setModel(new DefaultListModel());
+        jL_Jugadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jL_JugadoresMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jL_Jugadores);
 
-        jButton6.setText("Transferencia");
+        Transferencia.setText("Transferencia");
+        Transferencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TransferenciaMouseClicked(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Roboto Black", 0, 18)); // NOI18N
         jLabel13.setText("Jugadores");
@@ -318,7 +344,7 @@ public class Transferencia extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
@@ -331,7 +357,7 @@ public class Transferencia extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(66, 66, 66)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Transferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -356,6 +382,26 @@ public class Transferencia extends javax.swing.JFrame {
         );
 
         jMenuItem4.setText("jMenuItem4");
+
+        jMenuItem5.setText("Modificar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menu_jl.add(jMenuItem5);
+
+        jMenuItem6.setText("Eliminar\n");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menu_jl.add(jMenuItem6);
+
+        jMenuItem7.setText("jMenuItem7");
+        menu_equipo.add(jMenuItem7);
+        jMenuItem7.getAccessibleContext().setAccessibleName("eliminar");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -549,6 +595,87 @@ public class Transferencia extends javax.swing.JFrame {
         jt_Estadio.setText("");
     }//GEN-LAST:event_jButton4MouseClicked
 
+    private void jL_JugadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_JugadoresMouseClicked
+        // TODO add your handling code here:
+        if (jL_Jugadores.getSelectedIndex() >= 0){
+            if (evt.getButton()==3){
+                
+                menu_jl.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+        
+    }//GEN-LAST:event_jL_JugadoresMouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        DefaultListModel m
+                = (DefaultListModel) jL_Jugadores.getModel();
+        String prob = "";
+        String nombre = "";
+        
+        int edad = 0;
+        while(true){
+            nombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
+            if (nombre.contains("0")||nombre.contains("1")||
+                    nombre.contains("2")||
+                    nombre.contains("3")||nombre.contains("4")
+                    ||nombre.contains("5")||nombre.contains("6")
+                    ||nombre.contains("7")||nombre.contains("8")||nombre.contains("9") ){
+                continue;
+            }
+            else{
+                
+                break;
+            }
+        }
+        while(true){
+            prob = JOptionPane.showInputDialog("Edad");
+            if (prob.matches("[0-9]*")){
+                if(Integer.parseInt(prob) >= 15 && Integer.parseInt(prob) <= 45){
+                    edad = Integer.parseInt(prob);
+                    break;
+                }
+                continue;
+            }else{
+                continue;
+            }
+        }
+        ((Jugadores)m.get(jL_Jugadores.getSelectedIndex())).setNombre(nombre);
+        ((Jugadores)m.get(jL_Jugadores.getSelectedIndex())).setEdad(edad);
+        jL_Jugadores.setModel(m);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel modelo1 = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo1.getRoot();
+        DefaultListModel modelo = (DefaultListModel) jL_Jugadores.getModel();
+        modelo.remove(jL_Jugadores.getSelectedIndex());
+        jL_Jugadores.setModel(modelo);
+//        for (int i = 0; i <raiz.getChildCount() ; i++) {
+//            if ()
+//        }
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jf_nomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jf_nomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jf_nomActionPerformed
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        // TODO add your handling code here:
+        if (evt.getButton() == 3){
+            int row = jTree1.getClosestRowForLocation(evt.getX(), evt.getY());
+           jTree1.setSelectionRow(row);
+           Object pos = jTree1.getSelectionPath().getLastPathComponent();
+           
+               
+        }
+    }//GEN-LAST:event_jTree1MouseClicked
+
+    private void TransferenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TransferenciaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TransferenciaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -585,9 +712,9 @@ public class Transferencia extends javax.swing.JFrame {
     }
     public void jugador(){
         DefaultListModel modelo = (DefaultListModel) jL_Jugadores.getModel();
-        modelo.addElement(new Jugadores(jt_nom.getText(),Integer.parseInt(jS_Edad.getValue()+""),jc_posicion.getSelectedItem()+""));
+        modelo.addElement(new Jugadores(jf_nom.getText(),Integer.parseInt(jS_Edad.getValue()+""),jc_posicion.getSelectedItem()+""));
         jL_Jugadores.setModel(modelo);
-        jt_nom.setText("");
+        jf_nom.setText("");
         jS_Edad.setValue(15);
         jc_posicion.setSelectedItem(0);
     }
@@ -619,11 +746,11 @@ public class Transferencia extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Jb_jugador;
+    private javax.swing.JButton Transferencia;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JDialog jD_Equipos;
     private javax.swing.JDialog jD_Transferencia;
     private javax.swing.JDialog jD_jugador;
@@ -649,6 +776,9 @@ public class Transferencia extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jP_principal;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -659,10 +789,12 @@ public class Transferencia extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTree jTree1;
     private javax.swing.JComboBox<String> jc_posicion;
+    private javax.swing.JFormattedTextField jf_nom;
     private javax.swing.JTextField jt_Estadio;
     private javax.swing.JTextField jt_ciudad;
     private javax.swing.JTextField jt_equipo;
-    private javax.swing.JTextField jt_nom;
     private javax.swing.JTextField jt_pais;
+    private javax.swing.JPopupMenu menu_equipo;
+    private javax.swing.JPopupMenu menu_jl;
     // End of variables declaration//GEN-END:variables
 }
