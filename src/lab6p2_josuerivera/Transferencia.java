@@ -400,6 +400,11 @@ public class Transferencia extends javax.swing.JFrame {
         menu_jl.add(jMenuItem6);
 
         jMenuItem7.setText("jMenuItem7");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         menu_equipo.add(jMenuItem7);
         jMenuItem7.getAccessibleContext().setAccessibleName("eliminar");
 
@@ -714,6 +719,19 @@ public class Transferencia extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_TransferenciaMouseClicked
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel modell = (DefaultTreeModel) jTree1.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modell.getRoot();
+        for (int i = 0; i < raiz.getChildCount(); i++) {
+            if (raiz.getChildAt(i) instanceof Equipos){
+                ((DefaultMutableTreeNode)raiz.getChildAt(i)).removeAllChildren();
+                raiz.remove((DefaultMutableTreeNode)raiz.getChildAt(i));
+            }
+        }
+        modell.reload();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
