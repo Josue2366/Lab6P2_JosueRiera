@@ -696,8 +696,13 @@ public class Transferencia extends javax.swing.JFrame {
                      }
                  }
                  if (cont == 0){
-                     DefaultMutableTreeNode
+                     DefaultMutableTreeNode posicion = new DefaultMutableTreeNode (jugador.getPosicion());
+                     DefaultMutableTreeNode player = new DefaultMutableTreeNode(jugador);
+                     posicion.add(player);
+                     team.add(posicion);
+                     
                  }
+                 mod.reload(team);
              }
             }else{
                 JOptionPane.showMessageDialog(jD_Transferencia, "Equipo no seleccionado");
