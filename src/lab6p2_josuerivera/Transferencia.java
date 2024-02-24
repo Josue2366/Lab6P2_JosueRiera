@@ -674,6 +674,39 @@ public class Transferencia extends javax.swing.JFrame {
 
     private void TransferenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TransferenciaMouseClicked
         // TODO add your handling code here:
+        
+        if (jL_Jugadores.getSelectedIndex()>= 0){
+            int cont = 0;
+            DefaultListModel model_list= (DefaultListModel) jL_Jugadores.getModel();
+            Jugadores jugador = (Jugadores) model_list.getElementAt(jL_Jugadores.getSelectedIndex());
+            if (jTree1.getSelectionPath() != null){
+            DefaultTreeModel mod = (DefaultTreeModel) jTree1.getModel();
+            DefaultMutableTreeNode team = (DefaultMutableTreeNode) jTree1.getSelectionPath().getLastPathComponent();
+             if (team.getUserObject() instanceof Equipos){
+                 for (int i = 0; i < team.getChildCount(); i++) {
+                     DefaultMutableTreeNode nodpoci = (DefaultMutableTreeNode) team.getChildAt(i);
+                     if(nodpoci.getUserObject().equals(jugador.getPosicion())){
+                         DefaultMutableTreeNode sumarjug = new DefaultMutableTreeNode (jugador);
+                         nodpoci.add(sumarjug);
+                         cont = 1;
+                         break;
+                     }
+                     else{
+                         continue;
+                     }
+                 }
+                 if (cont == 0){
+                     DefaultMutableTreeNode
+                 }
+             }
+            }else{
+                JOptionPane.showMessageDialog(jD_Transferencia, "Equipo no seleccionado");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(jD_Transferencia, "Jugador no selecccionado");
+        }
+        
     }//GEN-LAST:event_TransferenciaMouseClicked
 
     /**
